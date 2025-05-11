@@ -27,14 +27,17 @@ class CategoryController extends Controller
             'is_active' => 'nullable|boolean',
         ]);
 
+
         $validated['slug'] = Str::slug($validated['name']);
         $validated['is_active'] = $request->has('is_active') ? 1 : 0;
 
         if ($request->hasFile('thumbnail_image')) {
             $validated['thumbnail_image'] = $request->file('thumbnail_image')->store('categories', 'public');
         }
-
+        
+        
         Category::create($validated);
+        // dd($validated);
         return redirect()->route('admin.categories.index')->with('success', 'Category created successfully!');
     }
 

@@ -26,17 +26,17 @@
 @stop
 
 @section('css')
-    {{-- DataTables and Buttons CSS --}}
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 @stop
 
 @section('js')
-    {{-- jQuery and DataTables --}}
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
-    {{-- Buttons for export --}}
+
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -51,11 +51,11 @@
                     { data: 'product_id', name: 'product_id' },
                     { data: 'product_code', name: 'product_code' },
                     {
-                        data: 'thumbnail_picture',
-                        name: 'thumbnail_picture',
+                        data: 'product_code',
+                        name: 'product_code',
                         render: function (data, type, row) {
                             return data 
-                                ? `<img src="/storage/${data}" width="60" height="60" style="object-fit: cover; border-radius: 6px;" />`
+                                ? `<img src="/storage/AllImages/${data}.png" width="60" height="60" style="object-fit: cover; border-radius: 6px;" />`
                                 : '-';
                         }
                     },

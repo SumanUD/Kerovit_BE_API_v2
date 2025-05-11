@@ -148,5 +148,38 @@ public function showData()
     return view('admin.products.index');
 }
 
+public function getAllProductsJson()
+{
+    $products = Product::all();
+
+    // dd($products);
+
+    return response()->json([
+        'status' => 'success',
+        'products' => $products->map(function ($product) {
+            return [
+                'id' => $product->id,
+                'collection' => $product->collection ?? null,
+                'category' => $product->category ?? null,
+                'range' => $product->range->name ?? null,
+                'product_code' => $product->product_code,
+                'product_title' => $product->product_title,
+                'shape' => $product->shape, 
+                'spray' => $product->spray,
+                'category_name' => $product->category_name,
+                'product_description' => $product->product_description,
+                'ranges' => $product->ranges,
+                'size' => $product->size,
+                'price' => $product->price,
+                'thumbnail_picture_url' => $product->thumbnail_picture ? asset('storage/AllImages/' . $product->thumbnail_picture.'.png') : null,
+                'product_image_url' => $product->product_image ? asset('storage/AllImages/' . $product->product_image.'.png') : null,
+                // 'created_at' => $product->created_at->toDateTimeString(),
+                // 'updated_at' => $product->updated_at->toDateTimeString(),
+            ];
+        }),
+    ]);
+}
+
+
     
 }

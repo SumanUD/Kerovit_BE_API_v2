@@ -52,7 +52,7 @@
 
                     <div class="form-group">
                         <label>Description *</label>
-                        <input type="text" name="name" class="form-control" value="{{ old('name') }}" required>
+                        <input type="text" name="description" class="form-control" value="{{ old('name') }}" required>
                     </div>
 
                     <div class="form-group">

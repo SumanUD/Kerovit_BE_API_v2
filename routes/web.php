@@ -35,14 +35,9 @@ Route::get('/admin/career/create', [ProductController::class, 'careercreate'])->
 Route::get('/admin/catalogue/create', [ProductController::class, 'catacreate'])->name('cata.create');
 Route::get('/admin/blog/create', [ProductController::class, 'blogcreate'])->name('blog.create');
 
-
-
-
 Route::post('/admin/products', [ProductController::class, 'store'])->name('products.store');
 
-
 Route::get('/admin/products/collections/{collectionId}/categories', [ProductController::class, 'getCategories'])->name('products.getCategories');
-
 
 Route::get('/admin/products/categories/{categoryId}/ranges', [ProductController::class, 'getRanges'])->name('products.getRanges');
 Route::get('/products/getdata', [ProductController::class, 'showData'])->name('products.index');
@@ -53,7 +48,6 @@ Route::put('/admin/products/{id}', [ProductController::class, 'update'])->name('
 
 
 Route::resource('dealers', DealerController::class);
-
 
 Route::resource('homepage', HomePageController::class);
 // Route::get('homepage/{id}', [HomePageController::class, 'show'])->name('homepage.show');

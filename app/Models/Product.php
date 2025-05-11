@@ -23,6 +23,7 @@ class Product extends Model
         'shape',
         'spray',
         'category_name',
+        'collection',
         'product_description',
         'ranges',
         'size',
